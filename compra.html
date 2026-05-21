@@ -1,0 +1,892 @@
+<!-- ====================================== -->
+<!-- FINALIZAR COMPRA PREMIUM COMPLETO -->
+<!-- ROYAL CHAMPIONS IMPORTS -->
+<!-- ====================================== -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finalizar Compra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="fotos chuteira/llogocerta2.0.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#050505;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+
+    width:100%;
+    height:90px;
+
+    background:black;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+
+    border-bottom:1px solid #222;
+
+    position:sticky;
+    top:0;
+
+    z-index:999;
+}
+
+.logo{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:42px;
+
+    letter-spacing:3px;
+}
+
+/* CARRINHO */
+
+.cart-icon{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    background:#111;
+
+    border:1px solid #2a2a2a;
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    transition:0.3s;
+
+    color:white;
+
+}
+
+.cart-icon:hover{
+
+    border-color:#c9a227;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 15px rgba(201,162,39,0.15);
+
+}
+
+.cart-name{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    letter-spacing:2px;
+
+    font-size:24px;
+
+    color:white;
+
+}
+
+#contador-carrinho{
+
+    background:#c9a227;
+
+    color:black;
+
+    min-width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+/* CHECKOUT */
+
+.checkout{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:60px;
+
+    display:grid;
+
+    grid-template-columns:1fr 420px;
+
+    gap:40px;
+}
+
+.checkout-form{
+
+    background:#111;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    border:1px solid #1f1f1f;
+}
+
+.title{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:60px;
+
+    margin-bottom:35px;
+
+    letter-spacing:2px;
+}
+
+.form-group{
+    margin-bottom:25px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#ccc;
+
+    font-size:15px;
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#1a1a1a;
+
+    color:white;
+
+    outline:none;
+
+    border:1px solid #2a2a2a;
+
+    transition:0.3s;
+}
+
+.form-group input:focus{
+
+    border-color:#c9a227;
+
+}
+
+.row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+/* PAGAMENTOS */
+
+.payment-title{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:36px;
+
+    letter-spacing:2px;
+
+    margin-top:35px;
+
+    margin-bottom:20px;
+}
+
+.payments{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.payment{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:#1a1a1a;
+
+    border:1px solid #2a2a2a;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    transition:0.3s;
+
+    cursor:pointer;
+}
+
+.payment:hover{
+
+    border-color:#c9a227;
+
+    transform:translateY(-2px);
+}
+
+.payment.active{
+
+    border-color:#c9a227;
+
+    box-shadow:0 0 20px rgba(201,162,39,0.12);
+}
+
+.payment input{
+
+    width:20px;
+
+    height:20px;
+}
+
+.payment img{
+
+    width:70px;
+
+    height:45px;
+
+    object-fit:contain;
+
+    border-radius:8px;
+
+    background:white;
+
+    padding:4px;
+}
+
+.payment-info h3{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:28px;
+
+    letter-spacing:1px;
+
+    margin-bottom:4px;
+}
+
+.payment-info p{
+
+    color:#aaa;
+
+    font-size:14px;
+}
+
+/* BOTÃO */
+
+.finish-btn{
+
+    width:100%;
+
+    padding:22px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#c9a227;
+
+    color:black;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    margin-top:35px;
+
+    transition:0.3s;
+}
+
+.finish-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 20px rgba(201,162,39,0.2);
+}
+
+/* PIX */
+
+.pix-box{
+
+    display:none;
+
+    margin-top:35px;
+
+    background:#1a1a1a;
+
+    border:1px solid #2a2a2a;
+
+    border-radius:24px;
+
+    padding:30px;
+
+}
+
+.pix-box h2{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.pix-text{
+
+    color:#aaa;
+
+    margin-bottom:25px;
+
+}
+
+.pix-qrcode{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:25px;
+
+}
+
+.pix-qrcode img{
+
+    width:230px;
+
+    height:230px;
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:20px;
+
+}
+
+.pix-copy-area{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.pix-copy-area input{
+
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#111;
+
+    color:white;
+
+    border:1px solid #2a2a2a;
+
+}
+
+.pix-copy-area button{
+
+    padding:18px 24px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#c9a227;
+
+    color:black;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+/* RESUMO */
+
+.summary{
+
+    background:#111;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    height:fit-content;
+
+    border:1px solid #1f1f1f;
+}
+
+.summary h2{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:48px;
+
+    margin-bottom:30px;
+}
+
+.produto-item{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+    background:#1a1a1a;
+
+    padding:15px;
+
+    border-radius:16px;
+}
+
+.produto-item img{
+
+    width:100px;
+
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+}
+
+.produto-info h3{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.produto-info p{
+
+    color:#c9a227;
+
+    font-weight:bold;
+}
+
+.total{
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid #222;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+    .checkout{
+        grid-template-columns:1fr;
+        padding:20px;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ROYAL CHAMPIONS
+    </div>
+
+    <a href="carrinho.html" class="cart-icon">
+
+        🛒
+
+        <span class="cart-name">
+            CARRINHO
+        </span>
+
+        <span id="contador-carrinho">
+            0
+        </span>
+
+    </a>
+
+</header>
+
+<section class="checkout">
+
+    <!-- FORM -->
+
+    <div class="checkout-form">
+
+        <h1 class="title">
+            FINALIZAR PEDIDO
+        </h1>
+
+        <div class="form-group">
+
+            <label>Nome Completo</label>
+
+            <input type="text">
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>E-mail</label>
+
+                <input type="email">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Telefone</label>
+
+                <input type="text">
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Endereço</label>
+
+            <input type="text">
+
+        </div>
+
+        <!-- PAGAMENTOS -->
+
+        <div class="payment-title">
+            MÉTODO DE PAGAMENTO
+        </div>
+
+        <div class="payments">
+
+            <div class="payment active">
+
+                <input type="radio" checked>
+
+                <img src="https://thf.bing.com/th/id/OIP.3WIuPvIce05kvfho1Bl_tgHaE8?w=273&h=182&c=7&r=0&o=7&cb=thfc1&pid=1.7&rm=3">
+
+                <div class="payment-info">
+
+                    <h3>PIX</h3>
+
+                    <p>Aprovação imediata</p>
+
+                </div>
+
+            </div>
+
+            <div class="payment">
+
+                <input type="radio">
+
+                <img src="https://thf.bing.com/th/id/OIP.D6Fxvn-Lpb-gH0i_bR-p3gHaCs?w=317&h=127&c=7&r=0&o=7&cb=thfc1&pid=1.7&rm=3">
+
+                <div class="payment-info">
+
+                    <h3>CRÉDITO</h3>
+
+                    <p>Parcelamento disponível</p>
+
+                </div>
+
+            </div>
+
+            <div class="payment">
+
+                <input type="radio">
+
+                <img src="https://thf.bing.com/th/id/OIP.fgkwCuz-ovfAcVMJP5srtwHaEK?w=304&h=180&c=7&r=0&o=7&cb=thfc1&pid=1.7&rm=3">
+
+                <div class="payment-info">
+
+                    <h3>DÉBITO</h3>
+
+                    <p>Pagamento rápido e seguro</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="finish-btn" onclick="finalizarPagamento()">
+            FINALIZAR PAGAMENTO
+        </button>
+
+        <!-- PIX -->
+
+        <div class="pix-box" id="pix-box">
+
+            <h2>
+                PAGAMENTO VIA PIX
+            </h2>
+
+            <p class="pix-text">
+                Escaneie o QR Code ou copie o código Pix abaixo.
+            </p>
+
+            <div class="pix-qrcode">
+
+                <img src="fotos chuteira/qrcode.png">
+
+            </div>
+
+            <div class="pix-copy-area">
+
+                <input
+                type="text"
+                id="pixCode"
+                readonly
+                value="00020126360014BR.GOV.BCB.PIX0114+5599999999995204000053039865405100.005802BR5925ROYALCHAMPIONS6009SAOPAULO62070503***6304ABCD">
+
+                <button onclick="copiarPix()">
+                    COPIAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RESUMO -->
+
+    <div class="summary">
+
+        <h2>
+            RESUMO
+        </h2>
+
+        <div id="produtos-carrinho"></div>
+
+        <div class="total">
+
+            <span>Total</span>
+
+            <span id="total">
+                R$ 0,00
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+/* CONTADOR */
+
+function atualizarContadorCarrinho(){
+
+    let carrinho =
+    JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    document.getElementById(
+    "contador-carrinho"
+    ).innerText = carrinho.length;
+
+}
+
+atualizarContadorCarrinho();
+
+/* PRODUTOS */
+
+let carrinho =
+JSON.parse(localStorage.getItem("carrinho")) || [];
+
+const areaProdutos =
+document.getElementById("produtos-carrinho");
+
+let total = 0;
+
+carrinho.forEach(produto => {
+
+    total += parseFloat(
+        produto.preco.replace(",", ".")
+    );
+
+    areaProdutos.innerHTML += `
+
+    <div class="produto-item">
+
+        <img src="${produto.imagem}">
+
+        <div class="produto-info">
+
+            <h3>${produto.nome}</h3>
+
+            <p>R$ ${produto.preco}</p>
+
+        </div>
+
+    </div>
+
+    `;
+
+});
+
+document.getElementById("total")
+.innerText =
+"R$ " + total.toFixed(2).replace(".", ",");
+
+/* PAGAMENTOS */
+
+const pagamentos =
+document.querySelectorAll(".payment");
+
+pagamentos.forEach(pagamento => {
+
+    pagamento.addEventListener("click", () => {
+
+        pagamentos.forEach(p => {
+
+            p.classList.remove("active");
+
+            p.querySelector("input").checked = false;
+
+        });
+
+        pagamento.classList.add("active");
+
+        pagamento.querySelector("input").checked = true;
+
+    });
+
+});
+
+/* FINALIZAR */
+
+function finalizarPagamento(){
+
+    const metodo =
+    document.querySelector(
+    ".payment.active h3"
+    ).innerText;
+
+    if(metodo === "PIX"){
+
+        document.getElementById(
+        "pix-box"
+        ).style.display = "block";
+
+        document.getElementById(
+        "pix-box"
+        ).scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+    else{
+
+        alert(
+        "Pagamento aprovado com sucesso!"
+        );
+
+    }
+
+}
+
+/* COPIAR PIX */
+
+function copiarPix(){
+
+    const pix =
+    document.getElementById("pixCode");
+
+    navigator.clipboard.writeText(
+        pix.value
+    );
+
+    alert("PIX copiado!");
+
+}
+
+</script>
+
+</body>
+</html>

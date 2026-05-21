@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nike Phantom 6</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="fotos chuteira/llogocerta2.0.png">
+
+    <style>
+
+.cart-icon{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    background:#111;
+
+    border:1px solid #2a2a2a;
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    transition:0.3s;
+
+    color:white;
+
+}
+
+.cart-icon:hover{
+
+    border-color:#c9a227;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 15px rgba(201,162,39,0.15);
+
+}
+
+.cart-name{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    letter-spacing:2px;
+
+    font-size:24px;
+
+    color:white;
+
+}
+
+#contador-carrinho{
+
+    background:#c9a227;
+
+    color:black;
+
+    min-width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+
+            animation: fadePage 1s ease;
+        }
+
+        /* ANIMAÇÃO */
+
+        @keyframes fadePage {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* HEADER */
+
+        header {
+            width: 100%;
+            height: 90px;
+
+            background: #000;
+
+            border-bottom: 1px solid #222;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 40px;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 999;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 42px;
+
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #999;
+        }
+
+        .back {
+            color: white;
+
+            text-decoration: none;
+
+            border: 1px solid #333;
+
+            padding: 12px 20px;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            background: white;
+            color: black;
+        }
+
+        /* PRODUTO */
+
+        .product {
+            width: 100%;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 60px;
+
+            padding: 120px 60px;
+        }
+
+        /* IMAGEM */
+
+        .product-image {
+            flex: 1;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 550px;
+
+            border-radius: 25px;
+
+            background: #111;
+
+            padding: 20px;
+
+            border: 1px solid #222;
+        }
+
+        /* INFO */
+
+        .product-info {
+            flex: 1;
+
+            max-width: 550px;
+        }
+
+        .product-info h1 {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 85px;
+
+            line-height: 80px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 20px;
+        }
+
+        .category {
+            color: #999;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #c9c9c9;
+
+            line-height: 34px;
+
+            font-size: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .price {
+            font-size: 42px;
+
+            font-weight: bold;
+
+            margin-bottom: 35px;
+        }
+
+        /* TAMANHOS */
+
+        .sizes {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 35px;
+        }
+
+        .size {
+            width: 60px;
+            height: 60px;
+
+            border-radius: 14px;
+
+            border: 1px solid #333;
+
+            background: #111;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .size:hover {
+            background: white;
+            color: black;
+        }
+
+        /* BOTÕES */
+
+        .buttons {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .buy {
+            padding: 18px 35px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: white;
+
+            color: black;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .buy:hover {
+            background: #cfcfcf;
+        }
+
+        .cart {
+            padding: 18px 35px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #1a1a1a;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .cart:hover {
+            background: #2b2b2b;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px;
+
+            text-align: center;
+
+            color: #777;
+
+            border-top: 1px solid #222;
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:950px) {
+
+            .product {
+                flex-direction: column;
+
+                padding: 120px 25px 60px;
+            }
+
+            .product-info h1 {
+                font-size: 60px;
+                line-height: 60px;
+            }
+
+            header {
+                padding: 0 20px;
+            }
+
+        }
+    </style>
+</head>
+<script>
+
+function adicionarCarrinho(nome, preco, imagem){
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    carrinho.push({
+        nome: nome,
+        preco: preco,
+        imagem: imagem
+    });
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    alert("Produto adicionado ao carrinho!");
+
+}
+
+</script>
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            CHAMPIONS <span>IMPORTS</span>
+        </div>
+
+        <a href="index.html" class="back">
+            VOLTAR
+        </a>
+
+    </header>
+
+    <!-- PRODUTO -->
+
+    <section class="product">
+
+        <!-- IMAGEM -->
+
+        <div class="product-image">
+
+            <img src="fotos chuteira/zomsuperfly.png">
+
+        </div>
+
+        <!-- INFO -->
+
+        <div class="product-info">
+
+            <div class="category">
+                TÊNIS ESPORTIVO PREMIUM
+            </div>
+
+            <h1>
+                Nike Air Zoom SuperFly
+            </h1>
+
+            <p class="description">
+
+                O Nike Air Zoom entrega máximo conforto,
+                amortecimento premium e um visual moderno
+                para corridas, academia e uso casual.
+                Desenvolvido para quem busca performance
+                e estilo em qualquer ocasião.
+
+            </p>
+
+            <div class="price">
+                R$ 629,90
+            </div>
+
+            <!-- TAMANHOS -->
+
+            <div class="sizes">
+
+                <div class="size">38</div>
+                <div class="size">39</div>
+                <div class="size">40</div>
+                <div class="size">41</div>
+                <div class="size">42</div>
+                <div class="size">43</div>
+
+            </div>
+
+            <!-- BOTÕES -->
+
+            <a href="compra.html?produto=NIKE+AIR+ZOOM+SUPERFLY&preco=629,90&imagem=fotos chuteira/zomsuperfly.png">
+
+                <button class="buy">
+                    COMPRAR AGORA
+                </button>
+
+            </a>
+
+            <button class="cart" onclick="adicionarCarrinho(
+'Nome Produto',
+'249,99',
+'foto.png'
+)">
+    ADICIONAR AO CARRINHO
+</button>
+        </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Champions Imports
+
+    </footer>
+<script>
+
+function adicionarCarrinho(nome, preco, imagem){
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    carrinho.push({
+        nome: nome,
+        preco: preco,
+        imagem: imagem
+    });
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    window.location.href = "carrinho.html";
+
+}
+
+</script>
+<script src="carrinho2.js"></script>
+</body>
+
+</html>

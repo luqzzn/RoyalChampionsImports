@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Champions Imports</title>
+
+    <link rel="icon" type="image/png" href="fotos chuteira/llogocerta2.0.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <style>
+        .cart-icon {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            text-decoration: none;
+
+            background: #111;
+
+            border: 1px solid #2a2a2a;
+
+            padding: 10px 16px;
+
+            border-radius: 14px;
+
+            transition: 0.3s;
+
+            color: white;
+
+        }
+
+        .cart-icon:hover {
+
+            border-color: #c9a227;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.15);
+
+        }
+
+        .cart-name {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            letter-spacing: 2px;
+
+            font-size: 24px;
+
+            color: white;
+
+        }
+
+        #contador-carrinho {
+
+            background: #c9a227;
+
+            color: black;
+
+            min-width: 24px;
+
+            height: 24px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* INTRO */
+
+        .intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url('fotos chuteira/fundo começo.png');
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            z-index: 9999;
+
+            animation: fadeOut 1s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        .logo-intro {
+            width: 380px;
+            max-width: 90%;
+
+            margin-bottom: -90px;
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            animation: logoFade 2s ease forwards;
+        }
+
+        .intro-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 75px;
+            letter-spacing: 6px;
+            margin-top: -5px;
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            animation: logoFade 2s ease forwards;
+            animation-delay: 0.5s;
+
+            text-align: center;
+        }
+
+        .intro-sub {
+            margin-top: 15px;
+
+            color: #c9a227;
+
+            font-size: 18px;
+
+            letter-spacing: 5px;
+
+            opacity: 0;
+
+            animation: subFade 2s ease forwards;
+            animation-delay: 1s;
+
+            text-align: center;
+        }
+
+        /* HEADER */
+
+        header {
+            width: 100%;
+            height: 90px;
+
+            background: transparent;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 60px;
+
+            position: fixed;
+            top: 0;
+
+            z-index: 1000;
+
+            backdrop-filter: blur(10px);
+
+            transition: transform 0.4s ease;
+        }
+
+        header.hide {
+            transform: translateY(-100%);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 42px;
+
+            letter-spacing: 3px;
+
+            color: white;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 30px;
+
+            transition: 0.3s;
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #c9a227;
+        }
+
+        /* HERO */
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 80px;
+        }
+
+        .slide {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            top: 0;
+            left: 0;
+
+            background-size: cover;
+            background-position: center;
+
+            opacity: 0;
+
+            transition: 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .hero-text {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 650px;
+
+            animation: heroFade 1.5s ease;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 110px;
+
+            line-height: 100px;
+
+            letter-spacing: 4px;
+
+            font-weight: 400;
+        }
+
+        .hero-text p {
+            color: #ddd;
+
+            font-size: 20px;
+
+            line-height: 34px;
+
+            font-weight: 300;
+
+            margin-top: 20px;
+        }
+
+        /* CHUTEIRAS */
+
+        .products-category {
+            padding: 160px 70px 40px;
+            overflow: visible;
+        }
+
+        .category-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 35px;
+        }
+
+        .title-left {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 65px;
+
+            letter-spacing: 3px;
+        }
+
+        .see-all {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+        .see-all:hover {
+            color: #c9a227;
+        }
+
+        .category-row {
+            display: flex;
+
+            gap: 25px;
+
+            overflow-x: auto;
+
+            padding-bottom: 10px;
+        }
+
+        .category-row::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .category-row::-webkit-scrollbar-thumb {
+            background: #333;
+
+            border-radius: 10px;
+        }
+
+        .product-card-horizontal {
+            min-width: 320px;
+
+            text-decoration: none;
+
+            color: white;
+
+            transition: 0.3s;
+
+            flex-shrink: 0;
+        }
+
+        .product-card-horizontal:hover {
+            transform: translateY(-6px);
+        }
+
+        .product-card-horizontal img {
+            width: 100%;
+
+            height: 320px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            background: #111;
+        }
+
+        .product-card-horizontal h3 {
+            margin-top: 18px;
+
+            font-size: 28px;
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            letter-spacing: 1px;
+
+            line-height: 35px;
+        }
+
+        .product-card-horizontal p {
+            margin-top: 10px;
+            color: #ddd;
+            font-size: 24px;
+        }
+
+        /* CARD DO MEIO DESTACADO */
+
+        .destaque-meio {
+            transform: translateY(-25px);
+            margin-top: 30px;
+        }
+
+        .destaque-meio:hover {
+            transform: translateY(-35px);
+        }
+
+        .destaque-meio img {
+            height: 430px !important;
+            border: 2px solid #c9a227;
+            box-shadow: 0 0 35px rgba(201, 162, 39, 0.35);
+        }
+
+        .destaque-meio h3 {
+            text-align: center;
+            color: #c9a227;
+            font-size: 34px;
+        }
+
+        .destaque-meio p {
+            text-align: center;
+            color: white;
+            letter-spacing: 3px;
+        }
+
+
+
+
+        /* PRODUTOS */
+
+        .products {
+            padding: 120px 70px;
+        }
+
+        .title {
+            font-family: 'Bebas Neue', sans-serif;
+
+            text-align: center;
+
+            font-size: 70px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 70px;
+        }
+
+        .grid {
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 35px;
+        }
+
+        .card {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            border-color: #ffffff;
+
+            box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 340px;
+
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 42px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .card-content p {
+            color: #bbb;
+
+            line-height: 28px;
+        }
+
+        .buy {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: black;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .buy:hover {
+            background: #d9d9d9;
+        }
+
+        /* SOBRE */
+
+        .about {
+            padding: 110px 60px;
+
+            background: #0a0a0a;
+
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 70px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            max-width: 900px;
+
+            margin: auto;
+
+            color: #ccc;
+
+            line-height: 36px;
+
+            font-size: 19px;
+        }
+
+        /* FOOTER */
+
+        .footer-premium {
+            background: #0a0a0a;
+
+            padding: 50px 30px 20px;
+
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 40px;
+
+            margin-bottom: 30px;
+        }
+
+        .footer-contact h3,
+        .footer-payment h3 {
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 28px;
+
+            margin-bottom: 15px;
+
+            letter-spacing: 2px;
+        }
+
+        /* SOCIAL */
+
+        .social-buttons {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .social-link img {
+            width: 28px;
+            height: 28px;
+
+            background: black;
+
+            border-radius: 6px;
+
+            padding: 3px;
+        }
+
+        .social-link:hover {
+            opacity: 0.7;
+        }
+
+        /* PAGAMENTOS */
+
+        .payments {
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .payments img {
+            height: 28px;
+
+            object-fit: contain;
+
+            transition: 0.3s;
+        }
+
+        .payments img:hover {
+            transform: scale(1.08);
+        }
+
+        .footer-copy {
+            border-top: 1px solid #222;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+        /* ANIMAÇÕES */
+
+        @keyframes logoFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        @keyframes subFade {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes fadeOut {
+
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+        }
+
+        @keyframes heroFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:900px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 0 25px;
+            }
+
+            .hero-text h1 {
+                font-size: 65px;
+                line-height: 65px;
+            }
+
+            .hero-text p {
+                font-size: 17px;
+                line-height: 30px;
+            }
+
+            .products {
+                padding: 100px 20px;
+            }
+
+            .about {
+                padding: 80px 20px;
+            }
+
+            .intro-name {
+                font-size: 50px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <img src="fotos chuteira/llogocerta2.0.png" class="logo-intro">
+
+        <div class="intro-name">
+            Bem-Vindo
+        </div>
+
+        <div class="intro-sub">
+            PERFORMANCE • ESTILO • ELITE
+        </div>
+
+    </div>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo-box">
+
+            <img src="fotos chuteira/logo animaçao.png.png" class="header-logo">
+
+            <div class="logo">
+                ROYAL CHAMPIONS IMPORTS
+            </div>
+
+        </div>
+
+        <nav>
+            <a href="#">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+        <a href="carrinho.html" class="cart-icon">
+
+            🛒
+
+            <span class="cart-name">
+                CARRINHO
+            </span>
+
+            <span id="contador-carrinho">
+                0
+            </span>
+
+        </a>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="slide active" style="background-image:
+    linear-gradient(to right, rgba(0,0,0,0.78), rgba(0,0,0,0.45)),
+    url('fotos chuteira/chuteirafundo.png.png');"></div>
+
+        <div class="slide" style="background-image:
+    linear-gradient(to right, rgba(0,0,0,0.78), rgba(0,0,0,0.45)),
+    url('fotos chuteira/fundo.png.png');"></div>
+
+        <div class="slide" style="background-image:
+    linear-gradient(to right, rgba(0,0,0,0.78), rgba(0,0,0,0.45)),
+    url('fotos chuteira/dnvermelho.png.png');"></div>
+
+        <div class="hero-text">
+
+            <h1>
+                VISTA-SE<br>
+                COMO UM<br>
+                CAMPEÃO
+            </h1>
+
+            <p>
+                Performance, estilo e atitude para campeões
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- CHUTEIRAS -->
+
+    <section class="products-category">
+
+        <div class="category-top">
+
+            <h2 class="title-left">
+                CHUTEIRAS CAMPO
+            </h2>
+
+            <a href="paginachiteria.html" class="see-all">
+                Ver tudo →
+            </a>
+
+        </div>
+
+        <div class="category-row">
+
+            <!-- CHUTEIRA 1 -->
+
+            <a href="nike mercural chuteira.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/NIKE AIR ZOOM MERCURIAL.jfif">
+
+                <h3>NIKE AIR ZOOM MERCURIAL</h3>
+
+                <p>R$ 629,90</p>
+
+            </a>
+
+            <!-- CHUTEIRA 2 -->
+
+            <a href="ADIDAS PREDATOR ELITE site.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/PHANTOM43.jpg">
+
+                <h3>ADIDAS PREDATOR ELITE</h3>
+
+                <p>R$ 599,90</p>
+
+            </a>
+
+
+            </a>
+
+            <!-- CHUTEIRA 3 -->
+
+            <a href="site phantom xg.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/gx.png">
+
+                <h3>NIKE PHANTOM GX</h3>
+
+                <p>R$ 629,90</p>
+
+            </a>
+
+            <!-- CHUTEIRA 4 -->
+
+            <a href="superflyzom site.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/zomsuperfly.png">
+
+                <h3>SUPERFLY ELITE</h3>
+
+                <p>R$ 629,90</p>
+
+            </a>
+
+        </div>
+
+    </section>
+    <!-- TÊNIS -->
+
+    <section class="products-category">
+
+        <div class="category-top">
+
+            <h2 class="title-left">
+                TÊNIS AIR MAX TN
+            </h2>
+
+            <a href="paginatenis.html" class="see-all">
+                Ver tudo →
+            </a>
+
+        </div>
+
+        <div class="category-row">
+
+            <!-- TENIS 1 -->
+
+            <a href="sitetnbranco.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/tnbranco.png.png">
+
+                <h3>AIR MAX TN TRIPLE WHITE</h3>
+
+                <p>R$ 269,99</p>
+
+            </a>
+
+            <!-- TENIS 2 -->
+
+            <a href="sitetnazuldegradre.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/tn azuldegradre.png">
+
+                <h3>AIR MAX TN NEPTUNE BLUE</h3>
+
+                <p>R$ 269,99</p>
+
+            </a>
+
+            <!-- TENIS 3 -->
+
+            <a href="sitetnrosinha.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/tnrozinha.png">
+
+                <h3>AIR MAX TN DUSK</h3>
+
+                <p>R$ 269,99</p>
+
+            </a>
+
+            <!-- TENIS 4 -->
+
+            <a href="sitetnpreto.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/tnpreto.png">
+
+                <h3>AIR MAX TN BLACK</h3>
+
+                <p>R$ 269,99</p>
+
+            </a>
+
+            <!-- TENIS 5 -->
+
+            <a href="sitetnablue.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/tnblue.png">
+
+                <h3>AIR MAX TN HYPER BLUE</h3>
+
+                <p>R$ 269,99</p>
+
+            </a>
+
+            <!-- TENIS 6 -->
+
+            <a href="sitetenisroxo.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/tnroxo.png">
+
+                <h3>AIR MAX TN VOLTAGE PURPLE</h3>
+
+                <p>R$ 269,99</p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- CAMISAS -->
+
+    <section class="products-category">
+
+        <div class="category-top">
+
+            <h2 class="title-left">
+                CAMISAS 26/27
+            </h2>
+
+            <a href="sitecamisastime.html" class="see-all">
+                Ver tudo →
+            </a>
+
+        </div>
+
+        <div class="category-row">
+
+            <!-- BRASIL AMARELA -->
+
+            <a href="sitecamisaamarela.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/camisaamarela.png">
+
+                <h3>BRASIL NIKE I 26/27</h3>
+
+                <p>R$ 249,99</p>
+
+            </a>
+
+            <!-- BRASIL AZUL -->
+
+            <a href="sitecamisaazul.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/camisazul.png">
+
+                <h3>BRASIL JORDAN II 26/27</h3>
+
+                <p>R$ 249,99</p>
+
+            </a>
+
+            <!-- REAL MADRID -->
+
+            <a href="sitecamisaral.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/camisareal.png">
+
+                <h3>REAL MADRID 26/27</h3>
+
+                <p>R$ 249,99</p>
+
+            </a>
+
+            <!-- PSG -->
+
+            <a href="sitecamisapsg.html" class="product-card-horizontal">
+
+                <img src="fotos chuteira/camisapsg.png">
+
+                <h3>PSG 2026/27</h3>
+
+                <p>R$ 249,99</p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUTOS -->
+
+    <section class="products" id="produtos">
+
+        <h2 class="title">
+            PRODUTOS EM DESTAQUE
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <img src="fotos chuteira/imagen dn.png.png">
+
+                <div class="card-content">
+
+                    <h3>Tênis Esportivo</h3>
+
+                    <p>
+                        Performance e conforto premium.
+                    </p>
+
+                    <button class="buy" onclick="location.href='paginatenis.html'">
+                        VEJA MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="fotos chuteira/camisa time.png.png">
+
+                <div class="card-content">
+
+                    <h3>Camisa Oficial</h3>
+
+                    <p>
+                        Clubes nacionais e internacionais.
+                    </p>
+
+                    <button class="buy" onclick="location.href='sitecamisastime.html'">
+                        VEJA MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="fotos chuteira/chuteira.png.png">
+
+                <div class="card-content">
+
+                    <h3>Chuteira Elite</h3>
+
+                    <p>
+                        Velocidade e precisão nos gramados.
+                    </p>
+
+                    <button class="buy" onclick="location.href='paginachiteria.html'">
+                        VEJA MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SOBRE -->
+
+    <section class="about" id="sobre">
+
+        <h2>
+            SOBRE A ROYAL CHAMPIONS IMPORTS
+        </h2>
+
+        <p>
+            A Royal Champions Imports traz produtos esportivos premium
+            com qualidade, estilo moderno e visual sofisticado
+            para quem busca performance e elegância.
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer-premium">
+
+        <div class="footer-content">
+
+            <div class="footer-contact">
+
+                <h3>Contato</h3>
+
+                <div class="social-buttons">
+
+                    <a href="https://wa.me/5511999999999" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+                        WhatsApp
+                    </a>
+
+                    <a href="https://instagram.com/royalchampionsimports" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-payment">
+
+                <h3>Formas de Pagamento</h3>
+
+                <div class="payments">
+
+                    <img src="https://logodownload.org/wp-content/uploads/2016/10/visa-logo-1.png">
+
+                    <img src="https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-2.png">
+
+                    <img src="https://logodownload.org/wp-content/uploads/2020/02/pix-banco-central-logo.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-copy">
+            © 2026 Royal Champions Imports - Todos os direitos reservados
+        </div>
+
+    </footer>
+
+    <script>
+
+        let slideIndex = 0;
+
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+
+            slides.forEach(slide => {
+                slide.classList.remove("active");
+            });
+
+            slides[index].classList.add("active");
+        }
+
+        function nextSlide() {
+
+            slideIndex++;
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+
+            showSlide(slideIndex);
+        }
+
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        /* HEADER SOME AO DESCER */
+
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", () => {
+
+            const header = document.querySelector("header");
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll) {
+                header.classList.add("hide");
+            } else {
+                header.classList.remove("hide");
+            }
+
+            lastScroll = currentScroll;
+
+        });
+
+        /* INTRO APARECE SÓ UMA VEZ */
+
+        const intro = document.querySelector(".intro");
+
+        if (sessionStorage.getItem("introJaMostrou")) {
+
+            intro.style.display = "none";
+
+        } else {
+
+            sessionStorage.setItem("introJaMostrou", "true");
+
+        }
+
+    </script>
+
+    <script src="carrinho2.js"></script>
+</body>
+
+</html>

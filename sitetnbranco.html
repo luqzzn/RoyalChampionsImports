@@ -1,0 +1,514 @@
+<!-- ====================================== -->
+<!-- AIR MAX PLUS TN TRIPLE WHITE -->
+<!-- ====================================== -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Air Max Plus Tn Triple White</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+
+
+.cart-icon{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    background:#111;
+
+    border:1px solid #2a2a2a;
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    transition:0.3s;
+
+    color:white;
+
+}
+
+.cart-icon:hover{
+
+    border-color:#c9a227;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 15px rgba(201,162,39,0.15);
+
+}
+
+.cart-name{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    letter-spacing:2px;
+
+    font-size:24px;
+
+    color:white;
+
+}
+
+#contador-carrinho{
+
+    background:#c9a227;
+
+    color:black;
+
+    min-width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+animation:fadePage 1s ease;
+}
+
+@keyframes fadePage{
+
+from{
+opacity:0;
+transform:translateY(10px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+header{
+
+width:100%;
+height:90px;
+
+background:#000;
+
+border-bottom:1px solid #222;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:0 40px;
+}
+
+.logo{
+
+font-family:'Bebas Neue', sans-serif;
+
+font-size:42px;
+
+letter-spacing:3px;
+}
+
+.logo span{
+color:#999;
+}
+
+.back{
+
+color:white;
+
+text-decoration:none;
+
+border:1px solid #333;
+
+padding:12px 20px;
+
+border-radius:12px;
+
+transition:0.3s;
+}
+
+.back:hover{
+background:white;
+color:black;
+}
+
+.product{
+
+width:100%;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:60px;
+
+padding:100px 60px;
+}
+
+.product-image{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.product-image img{
+
+width:100%;
+max-width:550px;
+
+border-radius:25px;
+
+background:#111;
+
+padding:20px;
+
+transition:0.4s;
+}
+
+.product-image img:hover{
+transform:scale(1.03);
+}
+
+.product-info{
+flex:1;
+max-width:550px;
+}
+
+.category{
+
+color:#999;
+
+letter-spacing:2px;
+
+margin-bottom:20px;
+}
+
+.product-info h1{
+
+font-family:'Bebas Neue', sans-serif;
+
+font-size:80px;
+
+line-height:80px;
+
+margin-bottom:20px;
+}
+
+.description{
+
+color:#c9c9c9;
+
+line-height:34px;
+
+font-size:18px;
+
+margin-bottom:30px;
+}
+
+.price{
+
+font-size:42px;
+
+font-weight:bold;
+
+margin-bottom:35px;
+}
+
+.sizes{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin-bottom:35px;
+}
+
+.size{
+.size.active{
+
+    background:#c9a227;
+
+    color:black;
+
+    border-color:#c9a227;
+
+    transform:scale(1.08);
+
+}
+width:60px;
+height:60px;
+
+border-radius:14px;
+
+border:1px solid #333;
+
+background:#111;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.size:hover{
+background:white;
+color:black;
+}
+
+.buttons{
+
+display:flex;
+
+gap:15px;
+}
+
+.buy{
+
+padding:18px 35px;
+
+border:none;
+
+border-radius:14px;
+
+background:white;
+
+color:black;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.buy:hover{
+background:#d9d9d9;
+transform:translateY(-2px);
+}
+
+.cart{
+
+padding:18px 35px;
+
+border:none;
+
+border-radius:14px;
+
+background:#1a1a1a;
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.cart:hover{
+background:#2b2b2b;
+}
+
+footer{
+
+padding:35px;
+
+text-align:center;
+
+color:#777;
+
+border-top:1px solid #222;
+}
+
+@media(max-width:950px){
+
+.product{
+flex-direction:column;
+padding:120px 25px 60px;
+}
+
+.product-info h1{
+font-size:60px;
+line-height:60px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+CHAMPIONS <span>IMPORTS</span>
+</div>
+
+<a href="paginatenis.html" class="back">
+VOLTAR
+</a>
+<a href="carrinho.html" class="cart-icon">
+
+    🛒
+
+    <span class="cart-name">
+        CARRINHO
+    </span>
+
+    <span id="contador-carrinho">
+        0
+    </span>
+
+</a>
+</header>
+
+<section class="product">
+
+<div class="product-image">
+
+<img src="fotos chuteira/tnbranco.png.png">
+
+</div>
+
+<div class="product-info">
+
+<div class="category">
+AIR MAX TN
+</div>
+
+<h1>
+TRIPLE WHITE
+</h1>
+
+<p class="description">
+
+O Air Max Plus Tn Triple White traz um visual premium
+com acabamento totalmente branco, conforto extremo
+e design moderno para qualquer ocasião.
+
+</p>
+
+<div class="price">
+R$ 269,99
+</div>
+
+<div class="sizes">
+
+<div class="size">38</div>
+<div class="size">39</div>
+<div class="size">40</div>
+<div class="size">41</div>
+<div class="size">42</div>
+<div class="size">43</div>
+
+</div>
+
+<div class="buttons">
+
+<button class="buy" onclick="comprar(
+'Air Max Plus TN Triple White',
+'269,99',
+'fotos chuteira/tnbranco.png.png'
+)">
+COMPRAR
+</button>
+
+<button class="cart" onclick="adicionarCarrinho(
+'Air Max Plus TN Triple White',
+'269,99',
+'fotos chuteira/tnbranco.png.png'
+)">
+CARRINHO
+</button>
+
+
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Champions Imports
+</footer>
+<script>
+
+function adicionarCarrinho(nome, preco, imagem){
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    carrinho.push({
+        nome: nome,
+        preco: preco,
+        imagem: imagem
+    });
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    window.location.href = "carrinho.html";
+
+}
+
+function comprar(nome, preco, imagem){
+
+    const url =
+    "compra.html" +
+    "?produto=" + encodeURIComponent(nome) +
+    "&preco=" + encodeURIComponent(preco) +
+    "&imagem=" + encodeURIComponent(imagem);
+
+    window.location.href = url;
+
+}
+
+</script>
+
+<script src="carrinho2.js"></script>
+
+</body>
+
+</html>
